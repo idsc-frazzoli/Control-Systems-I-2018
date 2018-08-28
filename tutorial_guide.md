@@ -136,7 +136,7 @@ As a student, you are eligible for the free professional version.
 
 1. Go to <https://www.jetbrains.com/shop/eform/students>, fill the form with your
 details and follow the sign-in instructions. 
-2. You can now login with your new credentials at <http://wwww.jetbrains.com> and access 
+2. You can now login with your new credentials at <http://www.jetbrains.com> and access 
 to all tools available for downlads with student license.
 3. Under the tab _download_ select _PyCharm 2018.2.2_ and download the Linux distribution.
 4. Extract the content of the tar archive in your favourite directory
@@ -212,7 +212,7 @@ Add one line using the plus icon. Change its mode to _Markdown_ and type
 This is my first **Jupyter notebook**.
 ``` 
 In Markdown quoting with double asterisks makes the text in between bold. You can 
-find a Markdown cheat sheet at [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code). 
+find a Markdown cheat sheet [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code). 
 
 
 Now it is time to run the Jupyter Notebook. Click on the _Run_ icon and
