@@ -106,8 +106,9 @@ be a useful tool for reports, data visualization and the coming python tutorials
      
 ## Installation instructions Linux
 
-### 1. Anaconda 
+### 1. Setup Python 
 
+#### 1.1 Using Anaconda
 A convenient way to install python 3.x together with the  Jupyter application is to use
 the Anaconda distribution. The advantage is that you have access to over 720 
 scientific packages. The system requirement is around 3 Gb of free space on disk.
@@ -128,6 +129,78 @@ Visual Studio Code, prompt _no_.
     ~$ conda
     ``` 
     the _conda_ command manual will show in the terminal. **conda** is a tool for managing and deploying applications, environments and packages.
+
+#### 1.2 Installing Jupyter with Anaconda
+
+Anaconda already comes with Jupyter Notebook app. You need to add anaconda's
+ bin folder to the PATH environment variable in order to find the Jupyter Notebook application. 
+- Open the terminal and type  the following commands. You can use any text editor, in the example we use gedit:
+ ` ~$ gedit .bashrc`
+- Append the following line ` ~$ export PATH={anaconda3-install-directory}/bin:$PATH`.
+- Save and exit.
+- In the terminal type `~$ source ./bashrc`
+- Now you can open the Jupyter web server typing the command `~$ jupyter notebook` 
+
+#### 1.3 Using apt-get and pip
+Ubuntu 16.04, and other versions of Debian Linux ship with both Python 3 and Python 2 pre-installed. 
+To make sure that our versions are up-to-date, let’s update and upgrade the system with apt-get:
+```
+~$ sudo apt-get update
+~$ sudo apt-get -y upgrade
+```
+
+The `-y` flag will confirm that we are agreeing for all items to be installed, but depending on your version
+ of Linux, you may need to confirm additional prompts as your system updates and upgrades.
+Once the process is complete, we can check the version of Python 3 that is installed in the system by typing:
+```
+~$ python3 -V
+```
+
+You’ll receive output in the terminal window that will let you know the version number. 
+The version number may vary depending on whether you are on Ubuntu 16.04, or another version of Linux,
+ but it will look similar to this:
+
+```
+Python 3.5.2
+```
+
+To manage software packages for Python, let’s install pip:
+
+```
+~$ sudo apt-get install -y python3-pip
+```
+A tool for use with Python, pip installs and manages programming packages we may want to use in our development projects. You can install Python packages by typing:
+
+```
+~$ pip3 install {package_name}
+```
+
+Here, _package_name_ can refer to any Python package or library
+So if you would like to install NumPy, you can do so with the command pip3 install numpy.
+
+There are a few more packages and development tools to install to ensure that we have a robust set-up
+for our programming environment:
+
+```
+~$ sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
+```
+
+#### 1.4 Installing Jupyter with pip3
+First, ensure that you have the latest pip: older versions may have trouble with some dependencies:
+
+```
+~$ python3 -m pip install --upgrade pip
+```
+Then install the Jupyter Notebook using:
+
+```
+~$ python3 -m pip install jupyter
+```
+
+If you get permission issues, try to run the previous command with sudo: `
+~$ sudo python3 -m pip install jupyter`.
+You can now start using Jupyter Notebook typing `jupyter notebook` in a open terminal. 
+ 
 
 ### 2. PyCharm
 
@@ -152,7 +225,7 @@ can easily start PyCharm. In the IDE window, click _Tools_ first and then select
 _Create Desktop Entry_, press _Ok_.   
 You can now close the IDE and open it from the launcher icon. 
 
-## Using Jupyter Notebook in PyCharm
+#### 2.1 Using Jupyter Notebook in PyCharm
 
 Any python script (program) belongs to a _project_. Create a new folder 
 called _test_, this will contain all projects files. You can create a project by 
@@ -163,8 +236,9 @@ navigating through the dialog window. Do not click on _Create_  yet.
  
 
 Before starting with coding (the fun part), we need to select the proper interpreter.
-Linux comes with a preinstalled python 2.7 which PyCharm recognizes and uses as 
-default interpreter. We need to change it to the Anaconda interpreter. After we add this 
+Linux comes with a preinstalled python 2.7 and Python 3. You can either chose Python 3 interpreter
+shipped with native Ubuntu or in case you want to use additional packages provided by Anaconda 
+we need to change it to the Anaconda interpreter. After we add this 
 new entry, it will not be necessary to repeat these steps for future projects.
 1. In the _Create Project_ window click on _Project Interpreter: Python x.x_.
 2. After selecting _Existing Interpreter_ specify the Anaconda interpreter. 
