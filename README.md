@@ -3,7 +3,7 @@
 ## What is Python?
 
 Python is a high level, object oriented, interpreted language:
-- __high level__: the programmers does not have to care about low-level implementation
+- __high level__: the programmer does not have to care about low-level implementation
  details such as registers, memory addresses but handles variables, arrays, 
  objects, logic constructors, loops.
  - __object oriented__ : programming is based on the concept of objects 
@@ -104,101 +104,115 @@ python IDE and the Jupyter Notebook. The first will be used for development and 
 be a useful tool for reports, data visualization and the coming python tutorials.
      
      
-## Installation instructions Linux
+## Installation instructions (Windows/Linux)
 
 ### 1. Setup Python 
 
-#### 1.1 Using Anaconda
+#### Using Anaconda
 A convenient way to install python 3.x together with the  Jupyter application is to use
 the Anaconda distribution. The advantage is that you have access to over 720 
 scientific packages. The system requirement is around 3 Gb of free space on disk.
 
-1. Go to <https://www.anaconda.com/download/#linux>, select and save _Python 3.6 version_
-2. Open a terminal, go to the download folder and change the script mode to executable. 
-Then execute the script: 
-    ```bash
-    ~$ cd {installation folder path}
-    ~{installation-folder-path}$ chmod +x Ananconda3-5.2.0-linux-x86_64.sh
-    ~{installation-folder-path}$ ./Ananconda3-5.2.0-linux-x86_64.sh
-    ``` 
-3. Follow the installations instructions in the terminal and when asked to install 
-Visual Studio Code, prompt _no_.
-4. You can verify installation by typing 
-    ```bash
-    ~$ export PATH={anaconda3-install-directory}/bin:$PATH
-    ~$ conda
-    ``` 
-    the _conda_ command manual will show in the terminal. **conda** is a tool for managing and deploying applications, environments and packages.
+- **Linux**
+    
+    1. Go to <https://www.anaconda.com/download/>, select and save _Python 3.6 version_
+    2. Open a terminal, go to the download folder and change the script mode to executable. 
+    Then execute the script: 
+        ```bash
+        ~$ cd {installation folder path}
+        ~{installation-folder-path}$ chmod +x Ananconda3-5.2.0-linux-x86_64.sh
+        ~{installation-folder-path}$ ./Ananconda3-5.2.0-linux-x86_64.sh
+        ``` 
+    3. Follow the installations instructions in the terminal and when asked to install 
+    Visual Studio Code, prompt _no_.
+    4. Add Anaconda path to the system PATH. Open with your favourite editor the bash file `.bashrc`. E.g, using `gedit`:   
+        ```bash
+        ~$ gedit .bashrc
+        ```
+        and append the line
+        ```
+        export PATH={anaconda3-install-directory}/bin:$PATH
+        ```
+        Save and exit. In the terminal type `~$ source ./bashrc`. You can verify the installation typing:
+        ```
+        ~$ conda
+        ``` 
+    the _conda_ command manual will show in the terminal. **conda** is a tool for managing and deploying applications, environments and packages. For installing a new package you can simply type `conda install <package_name>` in a terminal console. 
 
-#### 1.2 Installing Jupyter with Anaconda
+- **Windows**
+    1. Go to <https://www.anaconda.com/download/>, select and save _Python 3.6 version_
+    2. Click on the downloaded executable and follow the default installation instructions. Do not install Visual Studio. 
+    3. Add Anaconda path to the system PATH.
+    - open a windows terminal by typing `cmd` in the search window. Click  on `Command Prompt`.
+    - type `set PATH=%PATH%;<absolute\path\to\anaconda\installation>;<absolute\path\to\anaconda\installation>/Scripts`        
+    In my case it was:
+        `C:\Users\giuseppe>> set PATH=%PATH%;C:\Users\giuseppe\Anaconda3;C:\Users\giuseppe\Anaconda3\Scripts`
 
-Anaconda already comes with Jupyter Notebook app. You need to add anaconda's
- bin folder to the PATH environment variable in order to find the Jupyter Notebook application. 
-- Open the terminal and type  the following commands. You can use any text editor, in the example we use gedit:
- ` ~$ gedit .bashrc`
-- Append the following line ` ~$ export PATH={anaconda3-install-directory}/bin:$PATH`.
-- Save and exit.
-- In the terminal type `~$ source ./bashrc`
-- Now you can open the Jupyter web server typing the command `~$ jupyter notebook` 
-
-#### 1.3 Using apt-get and pip
+#### Using `apt-get` and `pip` (recommended for Linux)
 Ubuntu 16.04, and other versions of Debian Linux ship with both Python 3 and Python 2 pre-installed. 
 To make sure that our versions are up-to-date, let’s update and upgrade the system with apt-get:
 ```
 ~$ sudo apt-get update
 ~$ sudo apt-get -y upgrade
 ```
-
 The `-y` flag will confirm that we are agreeing for all items to be installed, but depending on your version
  of Linux, you may need to confirm additional prompts as your system updates and upgrades.
 Once the process is complete, we can check the version of Python 3 that is installed in the system by typing:
 ```
 ~$ python3 -V
 ```
-
 You’ll receive output in the terminal window that will let you know the version number. 
 The version number may vary depending on whether you are on Ubuntu 16.04, or another version of Linux,
  but it will look similar to this:
-
 ```
 Python 3.5.2
 ```
-
 To manage software packages for Python, let’s install pip:
-
 ```
 ~$ sudo apt-get install -y python3-pip
 ```
-A tool for use with Python, pip installs and manages programming packages we may want to use in our development projects. You can install Python packages by typing:
-
+A tool for use with Python, pip installs and manages programming packages we may want to use in our development projects. You can install missing Python packages typing:
 ```
-~$ pip3 install {package_name}
+~$ pip3 install --user {package_name}
 ```
-
-Here, _package_name_ can refer to any Python package or library
-So if you would like to install NumPy, you can do so with the command pip3 install numpy.
-
+Here, _package_name_ can refer to any Python package or library.
+So if you would like to install NumPy, you can do so with the command pip3 --user install numpy.
+The option user is to make sure that installation is local and not system-wide. 
 There are a few more packages and development tools to install to ensure that we have a robust set-up
 for our programming environment:
-
 ```
 ~$ sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 ```
+#### 1.2 Installing Jupyter
 
-#### 1.4 Installing Jupyter with pip3
+**With Anaconda** : Anaconda already comes with Jupyter Notebook app. 
+
+- **Linux**
+
+    You need to add Anaconda's bin folder to the PATH environment variable in order to find the Jupyter Notebook application
+    (if you still did not do it in the previous steps).
+    - Modify the `.bashrc` file. You can use any text editor, in the example we use gedit:
+     ` ~$ gedit .bashrc`
+    - Append the following line ` ~$ export PATH={anaconda3-install-directory}/bin:$PATH`.
+    - Save and exit.
+    - In the terminal type `~$ source ./bashrc`
+    - Now you can open the Jupyter web server typing the command `~$ jupyter notebook` 
+- **Windows**
+    - In your Start menu, after Anaconda installation, you'll have a bunch of neat new tools, including an entry for Jupyter Notebook. 
+Click to start it up and it will launch in the background and open up your browser to the notebook console.
+
+**With pip3 (Linux)**
+
 First, ensure that you have the latest pip: older versions may have trouble with some dependencies:
 
 ```
-~$ python3 -m pip install --upgrade pip
+~$ python3 -m pip install --user --upgrade pip
 ```
 Then install the Jupyter Notebook using:
 
 ```
-~$ python3 -m pip install jupyter
+~$ python3 -m pip install --user jupyter
 ```
-
-If you get permission issues, try to run the previous command with sudo: `
-~$ sudo python3 -m pip install jupyter`.
 You can now start using Jupyter Notebook typing `jupyter notebook` in a open terminal. 
  
 
@@ -208,23 +222,31 @@ PyCharm is the _standard de facto_ IDE for professional development of Python ap
 As a student, you are eligible for the free professional version. 
 
 1. Go to <https://www.jetbrains.com/shop/eform/students>, fill the form with your
-details and follow the sign-in instructions. 
+details and follow the registration instructions. 
 2. You can now login with your new credentials at <http://www.jetbrains.com> and access 
 to all tools available for downlads with student license.
-3. Under the tab _download_ select _PyCharm 2018.2.2_ and download the Linux distribution.
-4. Extract the content of the tar archive in your favourite directory
-5. Open a console and cd into the PyCharm folder:
-    ```bash
-    ~$ cd ~/{pycharm-dir}/bin
-    ~/{pycharm-dir}/bin$ ./pycharm.sh
-    ``` 
-    Activate the program using your jetbrains credentials.
-6. Follow the installation instructions and immediately start PyCharm creating the 
+3. Under the tab _download_ select _PyCharm 2018.2.2_ and download the Linux or Windows distribution.
+    **Linux**
+    
+     - Extract the content of the tar archive in your favourite directory
+     - Open a console and cd into the PyCharm folder:
+        ```bash
+        ~$ cd ~/{pycharm-dir}/bin
+        ~/{pycharm-dir}/bin$ ./pycharm.sh
+        ``` 
+     - Activate the program using your jetbrains credentials.
+     - Follow the installation instructions and immediately start PyCharm creating the 
 first untitled project. We require this step for creating a icon from which we
 can easily start PyCharm. In the IDE window, click _Tools_ first and then select 
 _Create Desktop Entry_, press _Ok_.   
-You can now close the IDE and open it from the launcher icon. 
-
+     - You can now close the IDE and open it from the launcher icon. 
+    
+    **Windows**
+    
+    - Follow the Graphical installer instructions. 
+    - Check 32-bit launcher or 64-bit launcher according to your platform and `associate .py extension` so that Windows will authomatically use Pycharm as default program for opening python scripts. 
+    - Activate the program using your jetbrains credentials.
+   
 #### 2.1 Using Jupyter Notebook in PyCharm
 
 Any python script (program) belongs to a _project_. Create a new folder 
@@ -235,15 +257,17 @@ Specify as location the _test_ folder by clicking on the three dots and
 navigating through the dialog window. Do not click on _Create_  yet. 
  
 
-Before starting with coding (the fun part), we need to select the proper interpreter.
+Before starting with coding , we need to select the proper interpreter.
 Linux comes with a preinstalled python 2.7 and Python 3. You can either chose Python 3 interpreter
 shipped with native Ubuntu or in case you want to use additional packages provided by Anaconda 
 we need to change it to the Anaconda interpreter. After we add this 
 new entry, it will not be necessary to repeat these steps for future projects.
 1. In the _Create Project_ window click on _Project Interpreter: Python x.x_.
-2. After selecting _Existing Interpreter_ specify the Anaconda interpreter. 
-Again, click on the three dots and navigate to the Anaconda installation folder. 
-Alternatively, you can just type  `~/{anaconda3-path}/bin/python`. 
+2. After selecting _Existing Interpreter_ specify the Anaconda interpreter if you previously installed it. 
+For Windows users, after clicking _Existing Interpreter_, just select _System interpreter_ on the 
+left and PyCharm will authomatically select the Anaconda interpreter. In case you did not install Anaconda, just
+select the default python 3.x interpreter. 
+Again, click on the three dots and navigate to the Anaconda installation folder.   
 3. Finally, click on _Create_.
 
 The apparently scary PyCharm IDE window will appear. Do not panic. We will not 
@@ -275,19 +299,42 @@ Congratulations! You have successfully run your first python program.
 
 ### My first Jupyter Notebook 
 
-Double click on _hello.ipynb_. In the editor window,  you will see a line.
-Any notebook consists of different type as Markdown (a way for writing highlighted text) and
-python code for example. Select the type to _Code_ and type 
+- **First method (recommended)**
+
+If you are a Linux user open a terminal and type `jupyter notebook`. If you are a Windows user just open the Jupyter client from the Start Menu. Jupyter dashboard will appear, showing the content of the local  directory. Navigate to the folder where you want your first notebook to be saved. Than click on `New`->`Python3`. A new notebook named `Untitled` will open. Clik on `Untitled` and give it a new name, like `FirstNotebook`. Alternatively you can navigate to the new notebook created in the `test` project. Jupyter notebooks have 2 types of line:
+- _code line_:  where you can write normal Python code
+- _markdown line_: where you can write explanatory text in **Markdown**. You can 
+find a Markdown cheat sheet [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code).
+
+Click on the first line and type `print("Hello world!")`
+Click on the plus sign, this will add a new line. Generally the newly added line will be a code line. To change its mode to Markdown, select Markdown from the scroll-down menu. 
+Copy past the following text: 
+> The command \`print(string)\` \_prints\_ to screen \*\*string\*\*.
+
+Now select the first code line and click on the play button. This will run the code contained inside the cell. For any code cell, Jupyter associate a pair of square brackets. 
+An astericks appears inside if the cell is running, after the cell is run they instead 
+contain an execution number. 
+You can understand in which order the code cells where executed looking at the cell 
+numbers. Although a notebook should be designed to run all code cells in a sequential 
+order, you are free to run any cell at any time. 
+Note that the cell will access to the variables known to the interpreter up to the previously executed cells only. 
+Now the following Markdown cell will be authomatically selected. 
+You can run it and visualize the highlighted text. 
+As you see, Markdown uses **underscores**, **asterisks**, **dashes** 
+and **indentation** to provide test highlighting and nested lists. 
+Title of different sizes can be obtained using multiple **hashtags** 
+(for more, see this [guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)). 
+
+That's it! Now you can open, run, edit all notebooks contained in the downloadable tutorial folder. Have fun!
+
+- **Second method**: editing notebooks with Pycharm
+
+Double click on _hello.ipynb_. In the Pycharm editor window,  you will see a code line.
  ```python
 print("Hello world!")    
 ``` 
-Add one line using the plus icon. Change its mode to _Markdown_ and type 
- ```python
-This is my first **Jupyter notebook**.
-``` 
-In Markdown quoting with double asterisks makes the text in between bold. You can 
-find a Markdown cheat sheet [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code). 
-
+Add one line using the plus icon. Change its mode to _Markdown_ and copy past the following text: 
+> The command \`print(string)\` \_prints\_ to screen \*\*string\*\*.
 
 Now it is time to run the Jupyter Notebook. Click on the _Run_ icon and
 in the next window cancel its content and then click _Ok_. A dialogue window
@@ -305,15 +352,17 @@ If you followed correctly all instructions you will see something similar to
    >ln[1] : print("Hello world!")
    >``` 
    >Hello world! <br/>
-   >This is my first **Jupyter notebook**.
+   > The command `print(string)` _prints_ to screen **string**.
 
 Now any change you apply on the web server can be saved to the local machine and viceversa. 
 Congratulations! You have successfully run your first Jupyter Notebook. 
+Note that the second procedure is a bit more complicated and Pycharm support for Jupyter notebooks is pretty poor.
+We suggest you to follow the previous instructions and avoid Pycharm, except rare cases, for editing a Jupyter notebook. 
 
 ## What's next?
 
-We will use Jupyter notebooks for give you a basic python introduction. You can walk through the tutorial 
-running each line sequentially. We strongly encourage to interact with the notebook and try to change the code.
+We will use Jupyter notebooks for give you a basic python introduction. You can walk through the tutorials, 
+running each line sequentially. We strongly encourage you to interact with the notebook and try to change the code.
 In this way you can get a better understanding of how your changes affect execution and output.  
 
 PyCharm will be the main tool for coding once you became familiar with Python.
@@ -321,5 +370,5 @@ It is a good practice to write a clear documentation. The reader, might it be a 
 even yourself after some time, will easily understand it and follow the logic of the implemented algorithms.
 
 Jupyter Notebooks can be extremely useful for explaining and visualizing data. You might want to make use 
-of it for either reporting and as part of your documentation.
+of it for either reporting or part of your documentation.
   
