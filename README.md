@@ -226,6 +226,7 @@ details and follow the registration instructions.
 2. You can now login with your new credentials at <http://www.jetbrains.com> and access 
 to all tools available for downlads with student license.
 3. Under the tab _download_ select _PyCharm 2018.2.2_ and download the Linux or Windows distribution.
+    
     **Linux**
     
      - Extract the content of the tar archive in your favourite directory
