@@ -1,4 +1,4 @@
-## Overview
+## Summary
 Recap of the proposed exercises.
 
 ### Exercise #0
@@ -36,3 +36,27 @@ found.
 
 **Hint**: `import math` for the `floor()` and `ceil()` functions.
 
+### Exercise #4
+
+Compare solution ode euler method and odeint
+
+ODE problems are important in computational physics, so we will look at one more example: the damped harmonic
+oscillation. This problem is well described on the wiki page: http://en.wikipedia.org/wiki/Damping
+
+The equation of motion for the damped oscillator is:
+
+xdd+2\*zeta\*omega_0\*xd+omega_0^2\*x=0
+
+where  x  is the position of the oscillator,  ω0  is the frequency, and  ζ  is the damping ratio.
+To write this second-order ODE on standard form we introduce  
+x_1=x and x_2 = dx:
+
+dx_1=x_2
+
+dx_2=−2\*zeta\*omega_0\*x_2−omega_0^2\*x_1
+
+In the implementation of this example we will add extra arguments to the RHS function for the ODE,
+rather than using global variables as we did in the previous example.
+As a consequence of the extra arguments to the RHS, we need to pass an keyword argument args to the odeint function:
+
+Then we compare solution to the first order Euler discretization.
