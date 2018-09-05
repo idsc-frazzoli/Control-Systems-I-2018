@@ -4,6 +4,10 @@
 
 # Hint: you can use the methods isdigit(), isalpha()
 
+##############################################
+#                  SOLUTION
+##############################################
+
 count = {"DIGITS": 0, "CHARACTERS": 0}
 
 s = input("Type here your input:\n")

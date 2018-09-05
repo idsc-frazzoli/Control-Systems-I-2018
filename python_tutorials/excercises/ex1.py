@@ -3,6 +3,11 @@
 # today is a beautiful day almost perfect today is beautiul did I say day ?
 
 # Hint: use input to get the input words list
+
+##############################################
+#                  SOLUTION
+##############################################
+
 s = input("Type here your input:\n")
 words = [w for w in s.split(" ")]
 print(" ".join(sorted(list(set(words)))))

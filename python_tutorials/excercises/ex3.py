@@ -7,6 +7,10 @@
 
 # Hint: import math for the floor, ceil functions
 
+##############################################
+#                  SOLUTION
+##############################################
+
 import math
 
 
@@ -22,22 +26,29 @@ def bin_search(item, li):
         print("Item not in the list.")
         return
 
-    while True:
-        half_idx = math.floor(len(li)/2)
+    top = len(li)
+    bottom = 0
+
+    while bottom != top:
+        half_idx = math.floor((top + bottom)/2)
         if item > li[half_idx]:
-            li = li[half_idx:]
+            bottom = half_idx + 1
         elif item < li[half_idx]:
-            li = li[:half_idx]
+            top = half_idx
         else:
-            print("Item stored at index", half_idx, ".")
+            print("Item stored at index", half_idx)
             return half_idx
 
-        if len(li) == 1:
-            print("Item not in the list.")
+    print("Item not in the list")
+    return -1
 
 
 my_list = [1, 4, 6, 7, 9, 12, 15, 18, 19, 20]
 
 bin_search(4, my_list)
-#bin_search(my_list, 19)
-#bin_search(my_list, 16)
+bin_search(19, my_list)
+bin_search(16, my_list)
+bin_search(22, my_list)
+bin_search(1, my_list)
+bin_search(20, my_list)
+

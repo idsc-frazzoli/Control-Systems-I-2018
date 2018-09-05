@@ -4,6 +4,10 @@
 # - If it is divisible by both 3 and 5 print only the number
 # All numbers must be printed on a new line, save the output to a text file called "ex0_output.txt"
 
+##############################################
+#                  SOLUTION
+##############################################
+
 with open("ex0_output.txt", "w") as f:
     for i in range(0, 21):
         if i % 3 == 0:
