@@ -156,6 +156,25 @@ scientific packages. The system requirement is around 3 Gb of free space on disk
     In my case it was:
         `C:\Users\giuseppe>> set PATH=%PATH%;C:\Users\giuseppe\Anaconda3;C:\Users\giuseppe\Anaconda3\Scripts`
 
+- **Mac**
+    1. Go to <https://www.anaconda.com/download/>, select and save _Python 3.6 version_
+    2. Click on the downloaded executable and follow the default installation instructions. Do not install Visual Studio.
+    3. Open Terminal and run the command
+```
+~$ python3 -V
+```
+It should return something like "Python 3.6.0 :: Anaconda x.x.x"
+	4. Run the command
+```
+~$ open /.bash_profile
+```
+and a text editor will open. Replace the line "export PATH=..." with
+```
+export PATH="\$PATH:/Users/{username}/anaconda/bin"
+```
+Save the file, quit your terminal and restart it
+    5. When you run python3 -V it should now return "Python 3.6.0"
+
 #### Using `apt-get` and `pip` (recommended for Linux)
 Ubuntu 16.04, and other versions of Debian Linux ship with both Python 3 and Python 2 pre-installed.
 To make sure that our versions are up-to-date, let’s update and upgrade the system with apt-get:
@@ -209,6 +228,9 @@ for our programming environment:
     - In your Start menu, after Anaconda installation, you'll have a bunch of neat new tools, including an entry for Jupyter Notebook.
 Click to start it up and it will launch in the background and open up your browser to the notebook console.
 
+- **Windows** 
+	- Open Anaconda-Navigator through Launchpad and launch jupyter notebook. It will open up your browser to the notebook console.
+
 **With pip3 (Linux)**
 
 First, ensure that you have the latest pip: older versions may have trouble with some dependencies:
@@ -255,6 +277,11 @@ _Create Desktop Entry_, press _Ok_.
     - Follow the Graphical installer instructions.
     - Check 32-bit launcher or 64-bit launcher according to your platform and `associate .py extension` so that Windows will authomatically use Pycharm as default program for opening python scripts.
     - Activate the program using your jetbrains credentials.
+    
+    **Mac**
+    
+    - Open the package and drag/drop PyCharm into your application folder
+    - Open PyCharm and activate the program using your Jetbrains credentials.
 
 #### 2.1 Using Jupyter Notebook in PyCharm
 
