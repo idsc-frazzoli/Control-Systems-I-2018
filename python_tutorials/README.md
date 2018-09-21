@@ -164,6 +164,7 @@ scientific packages. The system requirement is around 3 Gb of free space on disk
     ~$ python3 -V
     ```
     It should return something like "Python 3.6.0 :: Anaconda x.x.x".
+    
     4. Run the command
     ```
     ~$ open /.bash_profile
