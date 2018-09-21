@@ -163,7 +163,7 @@ scientific packages. The system requirement is around 3 Gb of free space on disk
 ```
 ~$ python3 -V
 ```
-It should return something like "Python 3.6.0 :: Anaconda x.x.x"
+It should return something like "Python 3.6.0 :: Anaconda x.x.x".
 	4. Run the command
 ```
 ~$ open /.bash_profile
@@ -172,7 +172,8 @@ and a text editor will open. Replace the line "export PATH=..." with
 ```
 export PATH="\$PATH:/Users/{username}/anaconda/bin"
 ```
-Save the file, quit your terminal and restart it
+Save the file, quit your terminal and restart it.
+
     5. When you run python3 -V it should now return "Python 3.6.0"
 
 #### Using `apt-get` and `pip` (recommended for Linux)
