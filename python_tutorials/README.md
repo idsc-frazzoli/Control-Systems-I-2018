@@ -228,7 +228,7 @@ for our programming environment:
     - In your Start menu, after Anaconda installation, you'll have a bunch of neat new tools, including an entry for Jupyter Notebook.
 Click to start it up and it will launch in the background and open up your browser to the notebook console.
 
-- **Windows** 
+- **Mac** 
 	- Open Anaconda-Navigator through Launchpad and launch jupyter notebook. It will open up your browser to the notebook console.
 
 **With pip3 (Linux)**
