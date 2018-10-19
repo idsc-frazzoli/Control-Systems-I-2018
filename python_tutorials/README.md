@@ -85,8 +85,8 @@ print(2)
 give different results, respectively:  
  ```python
 >> 1
->> 1
 >> 2
+>> 1
 >> 2
 ```
 and
